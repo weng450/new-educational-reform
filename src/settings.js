@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'Vue Admin Template',
+  title: '数值计算课前预习与课后答疑智能辅助系统',
 
   /**
    * @type {boolean} true | false

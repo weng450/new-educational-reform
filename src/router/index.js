@@ -49,9 +49,9 @@ export const constantRoutes = [
     redirect: '/dashboard',
     children: [{
       path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      name: '学生',
+      component: () => import('@/views/nested/menu1/index'),
+      meta: { title: '学生首页', icon: '首页' }
     }]
   },
 
@@ -60,35 +60,48 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    meta: { title: '教师界面', icon: '教师' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: { title: '题目列表', icon: '教师' }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: '发布通知', icon: '教师' }
+      },
+      {
+        path: 'inform',
+        name: 'Inform',
+        component: () => import('@/views/inform/index'),
+        meta: { title: '通知管理', icon: '教师' }
+      },
+      {
+        path: 'create',
+        name: '添加题库',
+        component: () => import('@/views/questionbank/create/index'),
+        meta: { title: '添加题库', icon: '教师' }
+      }
+      ,
+      {
+        path: 'resource',
+        name: '资源发布',
+        component: () => import('@/views/resource/index'),
+        meta: { title: '资源发布', icon: '教师' }
+      },
+      {
+        path: 'resourcelist',
+        name: '资源列表',
+        component: () => import('@/views/resource/list/index'),
+        meta: { title: '资源列表', icon: '教师' }
       }
     ]
   },
 
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
 
   {
     path: '/nested',
@@ -96,76 +109,72 @@ export const constantRoutes = [
     redirect: '/nested/menu1',
     name: 'Nested',
     meta: {
-      title: 'Nested',
-      icon: 'nested'
+      title: '学生界面',
+      icon: '学生'
     },
     children: [
       {
         path: 'menu1',
         component: () => import('@/views/nested/menu1/index'), // Parent router-view
         name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        meta: { title: '学生首页', icon: '学生' },
+
+
       },
       {
         path: 'menu2',
         component: () => import('@/views/nested/menu2/index'),
         name: 'Menu2',
-        meta: { title: 'menu2' }
+        meta: { title: '题目列表', icon: '学生' }
+      },
+      {
+        path: 'menu3',
+        component: () => import('@/views/nested/menu3/index'),
+        name: 'Menu3',
+        // meta: { title: '题目展示', icon: '学生' }
+      }, {
+        path: 'menu4',
+        component: () => import('@/views/nested/menu4/index'),
+        name: 'Menu4',
+        meta: { title: '知识点库', icon: '学生' }
+      }, {
+        path: 'menu5',
+        component: () => import('@/views/nested/menu5/index'),
+        name: 'Menu5',
+        meta: { title: '问答库', icon: '学生' }
+      }, {
+        path: 'menu6',
+        component: () => import('@/views/nested/menu6/index'),
+        name: 'Menu6',
+        meta: { title: '预习功能', icon: '学生' }
+      }
+      , {
+        path: 'menu7',
+        component: () => import('@/views/nested/menu7/index'),
+        name: 'Menu7',
+        // meta: { title: '问答库详细页面', icon: '学生' }
+      }, {
+        path: 'menu8',
+        component: () => import('@/views/nested/menu8/index'),
+        name: 'Menu8',
+        // meta: { title: '我要提问', icon: '学生' }
+      }, {
+        path: 'menu9',
+        component: () => import('@/views/nested/menu9/index'),
+        name: 'Menu9',
+        // meta: { title: '预习界面', icon: '学生' }
       }
     ]
   },
 
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
-  },
+
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
+  mode: 'hash', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })

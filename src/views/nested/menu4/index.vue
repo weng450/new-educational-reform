@@ -21,22 +21,22 @@
           {{ scope.$index }}
         </template>
       </el-table-column>
-      <el-table-column label="题号" width="150">
+      <el-table-column label="知识点" width="150">
         <template slot-scope="scope">
           {{ scope.row.id }}
         </template>
       </el-table-column>
-      <el-table-column label="作者" width="110" align="center">
+      <!-- <el-table-column label="作者" width="110" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.author }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="章节" width="110" align="center">
         <template slot-scope="scope">
           {{ scope.row.pageviews }}
         </template>
       </el-table-column>
-      <el-table-column
+      <!-- <el-table-column
         align="center"
         prop="created_at"
         label="创建时间"
@@ -46,7 +46,7 @@
           <i class="el-icon-time" />
           <span>{{ scope.row.display_time }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="操作" width="200" align="center">
         <template slot="header" slot-scope="scope">
           <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
@@ -69,11 +69,11 @@
       :with-header="false"
       size="40%"
     >
-      <div>题目内容</div>
+      <h2>知识点</h2>
       <el-image :src="timu"></el-image>
-      <el-divider></el-divider>
+      <!-- <el-divider></el-divider>
       <div>答案及备注</div>
-      <el-image :src="daan"></el-image>
+      <el-image :src="daan"></el-image> -->
     </el-drawer>
 
     <el-drawer
@@ -163,11 +163,11 @@ export default {
       drawer: false,
       list: null,
       listLoading: true,
-      timu: "https://s2.loli.net/2022/01/29/bBVtK7qPLnYQTOM.png",
+      timu: "https://s2.loli.net/2022/02/11/3YPChnWuTzaVcNG.png",
       daan: "https://s2.loli.net/2022/01/29/AJZ98YpBbOxHqoz.png",
       list1: [
         {
-          id: "2021091511",
+          id: "离散化方法",
           title: "序号",
           status: "published",
           author: "方秀兰",
@@ -175,7 +175,7 @@ export default {
           pageviews: "第一章",
         },
         {
-          id: "2021091512",
+          id: "插值方法",
           title: "油统相么七得就与次叫影此你。",
           status: "draft",
           author: "郑超",
@@ -183,7 +183,7 @@ export default {
           pageviews: "第一章",
         },
         {
-          id: "2021091513",
+          id: "逼近方法",
           title: "织及状马已地打严了农成物风同。",
           status: "deleted",
           author: "石刚",
@@ -191,31 +191,31 @@ export default {
           pageviews: "第一章",
         },
         {
-          id: "2021091514",
+          id: "迭代方法",
           title: "养内率群热及再特明段众组们计真民可。",
           status: "deleted",
           author: "魏秀英",
           display_time: "2021-09-14 06:27:07",
-          pageviews: "第二章",
+          pageviews: "第一章",
         },
         {
-          id: "2021091515",
+          id: "关于算法的评价",
           title: "酸规记用装布证油立间低入研参养。",
           status: "draft",
           author: "孟伟",
           display_time: "2021-09-14 06:27:07",
-          pageviews: "第二章",
+          pageviews: "第一章",
         },
         {
-          id: "2021091516",
+          id: "列表计算的程序设计",
           title: "济除酸系地影马我明具火务质八八及平化。",
           status: "published",
           author: "叶刚",
           display_time: "2021-09-14 06:27:07",
-          pageviews: "第二章",
+          pageviews: "第一章",
         },
         {
-          id: "2021091517",
+          id: "误差的来源",
           title: "音装期持有种局院存合集对组。",
           status: "published",
           author: "朱超",
@@ -223,7 +223,7 @@ export default {
           pageviews: "第二章",
         },
         {
-          id: "2021091518",
+          id: "误差的概念",
           title: "难二路毛治红须识加段不周记四。",
           status: "draft",
           author: "赵秀兰",

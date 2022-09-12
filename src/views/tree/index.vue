@@ -1,78 +1,50 @@
 <template>
   <div class="app-container">
-    <el-input v-model="filterText" placeholder="Filter keyword" style="margin-bottom:30px;" />
-
-    <el-tree
-      ref="tree2"
-      :data="data2"
-      :props="defaultProps"
-      :filter-node-method="filterNode"
-      class="filter-tree"
-      default-expand-all
-    />
-
+    <el-form ref="form" :model="form" label-width="80px">
+      <el-form-item label="通知类型">
+        <el-select v-model="form.region" placeholder="请选择通知类型">
+          <el-option label="类型一" value="shanghai"></el-option>
+          <el-option label="类型二" value="beijing"></el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="标题">
+        <el-col :span="12">
+          <el-input v-model="form.name"></el-input>
+        </el-col>
+      </el-form-item>
+      <el-form-item label="内容">
+        <el-col :span="12">
+          <el-input type="textarea" v-model="form.desc"></el-input>
+        </el-col>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="onSubmit">立即发布</el-button>
+        <el-button>取消</el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script>
 export default {
-
   data() {
     return {
-      filterText: '',
-      data2: [{
-        id: 1,
-        label: 'Level one 1',
-        children: [{
-          id: 4,
-          label: 'Level two 1-1',
-          children: [{
-            id: 9,
-            label: 'Level three 1-1-1'
-          }, {
-            id: 10,
-            label: 'Level three 1-1-2'
-          }]
-        }]
-      }, {
-        id: 2,
-        label: 'Level one 2',
-        children: [{
-          id: 5,
-          label: 'Level two 2-1'
-        }, {
-          id: 6,
-          label: 'Level two 2-2'
-        }]
-      }, {
-        id: 3,
-        label: 'Level one 3',
-        children: [{
-          id: 7,
-          label: 'Level two 3-1'
-        }, {
-          id: 8,
-          label: 'Level two 3-2'
-        }]
-      }],
-      defaultProps: {
-        children: 'children',
-        label: 'label'
-      }
-    }
+      form: {
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: "",
+      },
+    };
   },
-  watch: {
-    filterText(val) {
-      this.$refs.tree2.filter(val)
-    }
-  },
-
   methods: {
-    filterNode(value, data) {
-      if (!value) return true
-      return data.label.indexOf(value) !== -1
-    }
-  }
-}
+    onSubmit() {
+      console.log("submit!");
+    },
+  },
+};
 </script>
-

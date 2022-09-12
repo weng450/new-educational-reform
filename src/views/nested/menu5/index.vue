@@ -1,5 +1,14 @@
 <template>
   <div class="app-container">
+    <div>
+      <router-link to="/nested/menu8">
+        <el-button
+          style="position: relative; left: 700px; bottom: 10px"
+          type="success"
+          >我要提问</el-button
+        >
+      </router-link>
+    </div>
     <el-table
       v-loading="listLoading"
       :data="
@@ -16,27 +25,36 @@
       fit
       highlight-current-row
     >
+      <el-table-column type="expand">
+        <template slot-scope="props">
+          <el-form label-position="left" inline class="demo-table-expand">
+            <el-form-item label="答">
+              <span>{{ props.row.title }}</span>
+            </el-form-item>
+          </el-form>
+        </template>
+      </el-table-column>
       <el-table-column align="center" label="序号" width="95">
         <template slot-scope="scope">
           {{ scope.$index }}
         </template>
       </el-table-column>
-      <el-table-column label="题号" width="150">
+      <el-table-column label="问题" width="350">
         <template slot-scope="scope">
           {{ scope.row.id }}
         </template>
       </el-table-column>
-      <el-table-column label="作者" width="110" align="center">
+      <!-- <el-table-column label="作者" width="110" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.author }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="章节" width="110" align="center">
         <template slot-scope="scope">
           {{ scope.row.pageviews }}
         </template>
       </el-table-column>
-      <el-table-column
+      <!-- <el-table-column
         align="center"
         prop="created_at"
         label="创建时间"
@@ -46,18 +64,15 @@
           <i class="el-icon-time" />
           <span>{{ scope.row.display_time }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="操作" width="200" align="center">
         <template slot="header" slot-scope="scope">
           <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
         </template>
         <template slot-scope="scope">
-          <el-button
-            size="mini"
-            type="primary"
-            @click="handleEdit(scope.$index, scope.row)"
-            >查看</el-button
-          >
+          <router-link to="/nested/menu7">
+            <el-button size="mini" type="primary">查看详细</el-button>
+          </router-link>
         </template>
       </el-table-column>
     </el-table>
@@ -167,64 +182,70 @@ export default {
       daan: "https://s2.loli.net/2022/01/29/AJZ98YpBbOxHqoz.png",
       list1: [
         {
-          id: "2021091511",
-          title: "序号",
+          id: "数值计算和数学分析有什么区别",
+          title:
+            "数值计算可以由程序来完成，是有可以控制的误差的，可以很小很小，如0.0000001的误差，数学分析力求精确的数学表达式。",
           status: "published",
           author: "方秀兰",
           display_time: "2021-09-14 06:27:07",
           pageviews: "第一章",
         },
         {
-          id: "2021091512",
-          title: "油统相么七得就与次叫影此你。",
+          id: "什么是数值计算问题?什么是非数值计算问题?",
+          title:
+            "一般来说, 求大小多少的计算是数值计算. 例如,解方程等. 判断是非真假的计算是非数值计算. 例如,逻辑判断等.",
           status: "draft",
           author: "郑超",
           display_time: "2021-09-14 06:27:07",
           pageviews: "第一章",
         },
         {
-          id: "2021091513",
-          title: "织及状马已地打严了农成物风同。",
+          id: "数值应用和数值计算相同么",
+          title:
+            "目前，人类社会已经迈入了网络时代，计算机和互联网已经与老百姓的日常工作、学习和生活息息相关，人类社会目前又处于了一个历史飞跃时期，正由高度的工业化时代迈向初步的计算机网络时代。在计算机技术、网络通讯技术的高速发展的今天，电脑和网络正在以惊人的速度进入人类社会的各个角落。",
           status: "deleted",
           author: "石刚",
           display_time: "2021-09-14 06:27:07",
           pageviews: "第一章",
         },
         {
-          id: "2021091514",
-          title: "养内率群热及再特明段众组们计真民可。",
+          id: "举例说明为什么要用数值计算方法",
+          title: "神九上天、天气预报",
           status: "deleted",
           author: "魏秀英",
           display_time: "2021-09-14 06:27:07",
           pageviews: "第二章",
         },
         {
-          id: "2021091515",
-          title: "酸规记用装布证油立间低入研参养。",
+          id: "数值计算方法在实际生活中有什么应用？",
+          title:
+            "说一个大家不太容易知道的。现代做薄膜的方法一般是材料加一个“输入条件。”具体的生长过程（原子尺度的）我们一般是无法管的。这也是材料物理里有一个超级难搞但是一旦做出来会超级重要的东西，薄膜生长动力学。这个主要是研究薄膜是如何长出来...",
           status: "draft",
           author: "孟伟",
           display_time: "2021-09-14 06:27:07",
           pageviews: "第二章",
         },
         {
-          id: "2021091516",
-          title: "济除酸系地影马我明具火务质八八及平化。",
+          id: "编程过程中为什么要进行一些数值计算？",
+          title:
+            "编程就是在处理现实中遇到的复杂计算（以计算机代替人） 这里所说的“计算”，就包括数值计算",
           status: "published",
           author: "叶刚",
           display_time: "2021-09-14 06:27:07",
           pageviews: "第二章",
         },
         {
-          id: "2021091517",
-          title: "音装期持有种局院存合集对组。",
+          id: "数值计算求答案",
+          title: "我不会",
           status: "published",
           author: "朱超",
           display_time: "2021-09-14 06:27:07",
           pageviews: "第二章",
         },
         {
-          id: "2021091518",
-          title: "难二路毛治红须识加段不周记四。",
+          id: "数值计算积分有哪些方法",
+          title:
+            "可以用牛顿-科斯特公式，包括梯形公式、辛普生公式、以及各自的复合公式。",
           status: "draft",
           author: "赵秀兰",
           display_time: "2021-09-14 06:27:07",

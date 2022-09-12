@@ -21,25 +21,16 @@
           {{ scope.$index }}
         </template>
       </el-table-column>
-      <el-table-column label="题号" width="150">
+      <el-table-column label="课程" width="150">
         <template slot-scope="scope">
           {{ scope.row.id }}
         </template>
       </el-table-column>
-      <el-table-column label="作者" width="110" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.author }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="章节" width="110" align="center">
-        <template slot-scope="scope">
-          {{ scope.row.pageviews }}
-        </template>
-      </el-table-column>
+
       <el-table-column
         align="center"
         prop="created_at"
-        label="创建时间"
+        label="上课时间"
         width="200"
       >
         <template slot-scope="scope">
@@ -52,12 +43,9 @@
           <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
         </template>
         <template slot-scope="scope">
-          <el-button
-            size="mini"
-            type="primary"
-            @click="handleEdit(scope.$index, scope.row)"
-            >查看</el-button
-          >
+          <router-link to="/nested/menu9">
+            <el-button size="mini" type="primary">开始预习</el-button>
+          </router-link>
         </template>
       </el-table-column>
     </el-table>
@@ -167,67 +155,67 @@ export default {
       daan: "https://s2.loli.net/2022/01/29/AJZ98YpBbOxHqoz.png",
       list1: [
         {
-          id: "2021091511",
+          id: "第一课",
           title: "序号",
           status: "published",
           author: "方秀兰",
-          display_time: "2021-09-14 06:27:07",
+          display_time: "2021-09-14 08:00:00",
           pageviews: "第一章",
         },
         {
-          id: "2021091512",
+          id: "第二课",
           title: "油统相么七得就与次叫影此你。",
           status: "draft",
           author: "郑超",
-          display_time: "2021-09-14 06:27:07",
+          display_time: "2021-09-21 08:00:00",
           pageviews: "第一章",
         },
         {
-          id: "2021091513",
+          id: "第三课",
           title: "织及状马已地打严了农成物风同。",
           status: "deleted",
           author: "石刚",
-          display_time: "2021-09-14 06:27:07",
+          display_time: "2021-09-28 08:00:00",
           pageviews: "第一章",
         },
         {
-          id: "2021091514",
+          id: "第四课",
           title: "养内率群热及再特明段众组们计真民可。",
           status: "deleted",
           author: "魏秀英",
-          display_time: "2021-09-14 06:27:07",
+          display_time: "2021-10-08 08:00:00",
           pageviews: "第二章",
         },
         {
-          id: "2021091515",
+          id: "第五课",
           title: "酸规记用装布证油立间低入研参养。",
           status: "draft",
           author: "孟伟",
-          display_time: "2021-09-14 06:27:07",
+          display_time: "2021-10-15 08:00:00",
           pageviews: "第二章",
         },
         {
-          id: "2021091516",
+          id: "第六课",
           title: "济除酸系地影马我明具火务质八八及平化。",
           status: "published",
           author: "叶刚",
-          display_time: "2021-09-14 06:27:07",
+          display_time: "2021-10-22 08:00:00",
           pageviews: "第二章",
         },
         {
-          id: "2021091517",
+          id: "第七课",
           title: "音装期持有种局院存合集对组。",
           status: "published",
           author: "朱超",
-          display_time: "2021-09-14 06:27:07",
+          display_time: "2021-10-29 08:00:00",
           pageviews: "第二章",
         },
         {
-          id: "2021091518",
+          id: "第八课",
           title: "难二路毛治红须识加段不周记四。",
           status: "draft",
           author: "赵秀兰",
-          display_time: "2021-09-14 06:27:07",
+          display_time: "2021-11-05 08:00:00",
           pageviews: "第二章",
         },
       ],
